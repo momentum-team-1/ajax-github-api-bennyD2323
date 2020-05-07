@@ -1,7 +1,30 @@
 body{
+    
 background-color:lightblue; 
+display:flex;
+flex-direction:row;
+flex-wrap:wrap;
 }
-
-img{
+.target{
+    max-width:50%;
+    
+}
+header{
+    font-size:56px;
+    font-weight:bold;
+    width:100%;
+    padding-bottom:35px;
+    background:slategray;
+    margin-bottom:20px;
+}
+img {
     border-radius:50%;
+}
+.pictarget{
+flex-basis:50%;
+}
+.wrapper{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
 }

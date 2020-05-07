@@ -1,27 +1,19 @@
 let dataSection = document.querySelector("#target");
+let dataSection2 = document.querySelector("#target2")
 
 fetch("https://api.github.com/users/bennyd2323")
     .then (function (response){
         return response.json()
     })
     .then(function (data) {
-        let h1El = document.createElement ("h1")
+        let h1El = document.createElement ("p")
         h1El.innerText = data.name
         dataSection.appendChild (h1El)
         console.log (data)
         return data.url
     })
-
-    .then (url => fetch(url))
-    .then(response => response.json())
-        .then(function (photoData) {
-        console.log(photoData)
-        let photoDiv = document.createElement("div")
-        photoDiv.innerHTML = `<img src= ${photoData.avatar_url}>`
-        dataSection.appendChild (photoDiv)
-        return photoData.url
-    })
-
+    
+    
     .then (url => fetch(url))
     .then(response => response.json())
         .then(function (gitUser) {
@@ -40,9 +32,19 @@ fetch("https://api.github.com/users/bennyd2323")
     })
     .then (url => fetch(url))
     .then(response => response.json())
-        .then(function (webSite) {
+        .then(function (website) {
         let websiteDiv = document.createElement("div")
         websiteDiv.innerHTML = website.blog
         dataSection.appendChild (websiteDiv)
         return website.url
+    })
+
+    .then (url => fetch(url))
+    .then(response => response.json())
+        .then(function (photoData) {
+        console.log(photoData)
+        let photoDiv = document.createElement("div")
+        photoDiv.innerHTML = `<img src= ${photoData.avatar_url}>`
+        pictarget.appendChild (photoDiv)
+        return photoData.url
     })
